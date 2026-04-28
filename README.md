@@ -1,53 +1,59 @@
 # 🚀 Crude Oil Price Prediction using Machine Learning
 
-## 📌 Overview
+## 🎯 Problem Statement
 
-This project focuses on analyzing historical crude oil prices and building machine learning models to **forecast future prices**.
-It combines **time-series feature engineering** (lag and rolling statistics) with regression models to capture short-term market trends.
+Crude oil prices are highly volatile and influenced by multiple economic and geopolitical factors.
+The objective of this project is to build a machine learning model that can **predict future crude oil prices** using historical data.
 
 ---
 
-## 🎯 Objective
+## 🌍 Why This Project Matters
 
-To predict the **next day’s crude oil price** using historical price data and engineered features.
+Crude oil is one of the most important global commodities. Its price impacts:
+
+* Energy markets
+* Inflation and economy
+* Investment decisions
+
+Accurate prediction can help in better decision-making and analysis.
 
 ---
 
 ## 📊 Dataset
 
 * Historical crude oil price dataset
-* Time-based data (daily prices)
+* Time-series data (daily prices)
 
 ---
 
 ## 🔍 Exploratory Data Analysis (EDA)
 
-Key analyses performed:
+Performed:
 
-* Price trend visualization over time
+* Price trend analysis over time
 * Weekly and monthly volatility (rolling standard deviation)
-* Seasonal patterns (month/year analysis)
-* Correlation analysis between features
+* Correlation analysis
+* Seasonal patterns (month/year trends)
 
 ---
 
 ## ⚙️ Feature Engineering
 
-To improve prediction performance, the following features were created:
+To improve model performance, time-series features were created:
 
-* **Lag Features**
+### 🔹 Lag Features
 
-  * `lag_1`: Previous day price
-  * `lag_7`: Price from the previous week
+* `Lag_1` → Previous day price
+* `Lag_7` → Price from previous week
 
-* **Rolling Features**
+### 🔹 Rolling Features
 
-  * `rolling_mean_7`: 7-day moving average
-  * `rolling_std_7`: 7-day volatility
+* `rolling_7` → 7-day moving average
+* `rolling_std_7` → 7-day volatility
 
-* **Target Variable**
+### 🔹 Target Variable
 
-  * `target`: Next day price (`shift(-1)`)
+* `target` → Next day price (`shift(-1)`)
 
 ---
 
@@ -60,36 +66,43 @@ To improve prediction performance, the following features were created:
 
 ## 📈 Model Performance
 
-| Model             | MAE   | R² Score |
-| ----------------- | ----- | -------- |
-| Linear Regression | ~5.17 | ~0.79    |
-| Random Forest     | ~7.65 | ~0.54    |
+| Model             | MAE  | MSE    | R² Score |
+| ----------------- | ---- | ------ | -------- |
+| Linear Regression | 5.17 | 47.64  | 0.79     |
+| Random Forest     | 7.99 | 116.17 | 0.50     |
 
 ---
 
-## 📊 Visualizations
+## 📊 Visual Results
 
-* Actual vs Predicted price trends
-* Error analysis plots
-* Distribution of prediction errors
-* Feature importance (Random Forest)
+### 📈 Actual vs Predicted Prices
+
+![Actual vs Predicted](images/actual_vs_predicted.png)
+
+### 📊 Feature Importance
+
+![Feature Importance](images/feature_importance.png)
+
+### 📉 Residual Plot
+
+![Residual Plot](images/residual_plot.png)
 
 ---
 
 ## 🧠 Key Insights
 
-* Crude oil prices show **strong dependency on previous values**
+* Crude oil prices show **strong dependency on past values**
 * Lag features significantly improve prediction accuracy
-* Simpler models (Linear Regression) outperform complex ones on small datasets
-* Feature engineering plays a critical role in time-series modeling
+* Linear Regression performed better than Random Forest due to dataset size and linear trends
+* Feature engineering plays a crucial role in time-series prediction
 
 ---
 
 ## ⚠️ Challenges
 
 * Limited dataset size (~400 usable rows after preprocessing)
-* High correlation between features leading to simpler model dominance
-* Handling data leakage during feature creation
+* High correlation between features
+* Avoiding data leakage during feature creation
 
 ---
 
@@ -97,8 +110,8 @@ To improve prediction performance, the following features were created:
 
 * Implement advanced models like XGBoost
 * Perform multi-step forecasting (predict multiple future days)
-* Incorporate external factors (economic indicators, global events)
-* Build an interactive dashboard for real-time predictions
+* Include external features (economic indicators, global events)
+* Build an interactive dashboard for predictions
 
 ---
 
@@ -121,16 +134,35 @@ crude-oil-price-prediction/
 │── notebook/
 │   └── oil_price_analysis.ipynb
 │
+│── images/
+│   ├── actual_vs_predicted.png
+│   ├── feature_importance.png
+│   ├── residual_plot.png
+│
 │── README.md
 │── requirements.txt
 ```
 
 ---
 
+## ▶️ How to Run
+
+```bash
+# Clone repository
+git clone https://github.com/ShahDhairya16/crude-oil-price-prediction
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run notebook
+```
+
+---
+
 ## 📌 Conclusion
 
-This project demonstrates how time-series feature engineering combined with machine learning can effectively model short-term crude oil price movements.
-While results are promising, further improvements can be achieved with more data and advanced modeling techniques.
+This project demonstrates how machine learning combined with time-series feature engineering can effectively model short-term crude oil price movements.
+While the results are promising, further improvements can be achieved using advanced models and additional data sources.
 
 ---
 
